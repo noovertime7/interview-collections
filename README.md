@@ -1,5 +1,18 @@
-there are some works‘ effect display：
-@[toc]
+there are some works‘ effect display.
+
+Table of Contents
+=================
+
+   * [1.ebpf](#1ebpf)
+   * [2.k8s resource management tool webUI](#2k8s-resource-management-tool-webui)
+   * [3.kubectl ai plugin](#3kubectl-ai-plugin)
+   * [4.admisson controller](#4admisson-controller)
+   * [5.customized kubelet(edge node)](#5customized-kubeletedge-node)
+   * [6.ingress operator](#6ingress-operator)
+   * [7.pod lifecycle trace(otel)](#7pod-lifecycle-traceotel)
+   * [8.multi-cluster management tool(kubectl proxy)](#8multi-cluster-management-toolkubectl-proxy)
+
+
 
 ----
 
