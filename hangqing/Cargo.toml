@@ -1,0 +1,27 @@
+[package]
+name = "hangqing"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+anyhow = { version = "1", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = "0.4.22"
+chrono-tz = "0.5"
+once_cell = "1.16.0"
+actix-cors = "0.6.4"
+hyper = { version = "0.14", features = ["full"] }
+http = "0.2.11"
+url = "2.5.0"
+actix-web = "4.2.1"
+hyper-tls = { version = "0.5.0", features = [] }
+polars = {version="0.24.3",features =["lazy","strings","rows","rolling_window","round_series","json","ewma"]}
+bytes = "1.5.0"
+qstring = "0.7.2"
+csv = { version = "1.2.1", features = [] }
+futures = "0.3.28"
+moka = { version = "0.12",  features = ["future"] }

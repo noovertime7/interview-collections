@@ -1,0 +1,6 @@
+k8s:
+  nodes:
+    - name: mynode
+      ip: 127.0.0.1
+      user: root
+      pass: 123456

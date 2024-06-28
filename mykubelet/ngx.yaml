@@ -1,0 +1,14 @@
+# nginx pod yaml, nodeName: mynode
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  nodeName: mynode
+  containers:
+  - image: nginx
+    name: nginx
+    command: ["/bin/sh"]
+    args: ["-c", "echo 233 & exit 1"]
+    ports:
+    - containerPort: 80

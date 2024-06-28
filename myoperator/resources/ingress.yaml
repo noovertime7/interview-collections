@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    octoboy.ingress.kubernetes.io/rewrite-target: /$1
+    octoboy.ingress.kubernetes.io/add-request-header: name=zhangyuhe;age=26
+    octoboy.ingress.kubernetes.io/add-response-header: ret=hahaha
+    kubernetes.io/ingress.class: "octoboy"
+spec:
+  rules:
+    - host: "myservicea.foo.org"
+      http:
+        paths:
+          - path: /octoboy/{param:.*}
+            pathType: Prefix
+            backend:
+              service:
+                name: jtapp
+                port:
+                  number: 9090

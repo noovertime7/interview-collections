@@ -1,0 +1,6 @@
+apiVersion: extensions.octoboy.com/v1
+kind: Route
+metadata:
+  name: myroute
+spec:
+  version: "test"

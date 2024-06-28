@@ -1,0 +1,48 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: myhook
+webhooks:
+  - clientConfig:
+      caBundle: |
+        LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURoakNDQW02Z0F3SUJBZ0lVZU41ZU5td29t
+        RXZMREFvSUpnYjhTVUZUandFd0RRWUpLb1pJaHZjTkFRRUwKQlFBd1NURUxNQWtHQTFVRUJoTUNl
+        bWd4Q3pBSkJnTlZCQWNUQW1KcU1Rc3dDUVlEVlFRS0V3SmlhakVMTUFrRwpBMVVFQ3hNQ1EwRXhF
+        ekFSQmdOVkJBTVRDa3QxWW1WeWJtVjBaWE13SGhjTk1qSXdPREF5TURJeU56QXdXaGNOCk1qY3dP
+        REF4TURJeU56QXdXakJKTVFzd0NRWURWUVFHRXdKNmFERUxNQWtHQTFVRUJ4TUNZbW94Q3pBSkJn
+        TlYKQkFvVEFtSnFNUXN3Q1FZRFZRUUxFd0pEUVRFVE1CRUdBMVVFQXhNS1MzVmlaWEp1WlhSbGN6
+        Q0NBU0l3RFFZSgpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMVk5rY1pUcWpkdHJD
+        Yzh3YkhqMXlVejhucHl2QkVECkJxNmFyZElOU2NBRldyT0wzNVRJVmNOZnFQRWlhbkxhbjJsbkFG
+        dWp1UE9WaFhYOS9CMzhoSkU1QjJBeXhTYXgKYzdxM1lUWnpYS0xsQ2c1UVc0Wlk2SVFVdTdGbHZ2
+        T0RIRjEyNTl6OEd4dGFsdjQ1Z0pYSDV5Nnp4WlNBMEJxZgpURnR3bHFRb1krMVN3QkhtZ2lBRWpX
+        ekxZV0cydHVRRndkZW9YR2tWd0Y2dkwzM1NoM09yb1ZHQTQ2aVRiMUdKCkgxenBKNWpVYlpZbFAx
+        SFVta0R4dnF1NDJJaGJnN1lPNWIvUktMaWpvVVJza0p2d1dzb3dvVU03dU1GSllrdUsKdFc3MlJ3
+        S1UwNnoxN20xUmxZZlpzWkt2NU9ONjd3RlR4M0plQUlTcno1OHBKN2cwaUwySTh0MENBd0VBQWFO
+        bQpNR1F3RGdZRFZSMFBBUUgvQkFRREFnRUdNQklHQTFVZEV3RUIvd1FJTUFZQkFmOENBUUl3SFFZ
+        RFZSME9CQllFCkZPWWRwMzJkL09VanM0VkpMMDZyRTJtZlAwZkZNQjhHQTFVZEl3UVlNQmFBRk9Z
+        ZHAzMmQvT1VqczRWSkwwNnIKRTJtZlAwZkZNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUFrYXVN
+        T01OQU9DTUN2QmFqR0JhYUhXRFpBekdvTAo5cHJhWWRDWEwvQkw4Z25qczJsZmRjcWZZclpUM3pY
+        Q3IzNXlmUEJSZitNUFRtKzdlQkF5bHlCeWlNK0xPcDRMCkM5MEVWT2NUM0hxK2EvUlBURjJEbmxB
+        emwva1JkMGN3RFM2WTdLUGovQWxlc3FzVUNQVXVLbVlnb3hadmNqa04KU1NYVEs4VWk2Vncyekd2
+        MzU5bFR0QjA3Y3paZjhYR09xeEZpQi9tUUVERldOOGxxYkF3b2k1NHVZbHlsaXowcApyWFp0cHhy
+        N0tza0dHb08rcTVEdTRwVnZUNlFUakd6NzNlYktacnRieURsbzBnbDdCZmxPTHBEM1d0WWw0b3N4
+        CmlYZ3NYaVNxdmNUcEkrbGJLNUQ3dlMrS1pybXpmaFozWWRWdW9mR083UCtsMFUwKzZaUytjMi9v
+        Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      service:
+        name: myhook
+        namespace: ops
+        path: /pods
+    failurePolicy: Fail
+    sideEffects: NoneOnDryRun
+    name: www.bestsign.cn
+    admissionReviewVersions: ["v1", "v1beta1"]
+    namespaceSelector:
+      matchExpressions:
+        - key: env
+          operator: In
+          values: ["prod", "pre", "dev", "test"]
+    rules:
+      - apiGroups:   [""]
+        apiVersions: ["v1"]
+        operations:  ["CREATE"]
+        resources:   ["pods"]

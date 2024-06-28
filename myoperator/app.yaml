@@ -1,0 +1,50 @@
+Ingress:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"octoboy","octoboy.ingress.kubernetes.io/add-request-header":"name=zhangyuhe;age=26","octoboy.ingress.kubernetes.io/add-response-header":"ret=hahaha","octoboy.ingress.kubernetes.io/rewrite-target":"/$1"},"name":"minimal-ingress","namespace":"default"},"spec":{"rules":[{"host":"myservicea.foo.org","http":{"paths":[{"backend":{"service":{"name":"jtapp","port":{"number":9090}}},"path":"/octoboy/{param:.*}","pathType":"Prefix"}]}}]}}
+      kubernetes.io/ingress.class: octoboy
+      octoboy.ingress.kubernetes.io/add-request-header: name=zhangyuhe;age=26
+      octoboy.ingress.kubernetes.io/add-response-header: ret=hahaha
+      octoboy.ingress.kubernetes.io/rewrite-target: /$1
+    creationTimestamp: "2024-01-21T06:06:02Z"
+    generation: 1
+    managedFields:
+    - apiVersion: networking.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:kubernetes.io/ingress.class: {}
+            f:octoboy.ingress.kubernetes.io/add-request-header: {}
+            f:octoboy.ingress.kubernetes.io/add-response-header: {}
+            f:octoboy.ingress.kubernetes.io/rewrite-target: {}
+        f:spec:
+          f:rules: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2024-01-21T06:06:02Z"
+    name: minimal-ingress
+    namespace: default
+    resourceVersion: "15980221"
+    uid: 25a10917-9a76-4f9f-a1e3-1c2be86abe65
+  spec:
+    rules:
+    - host: myservicea.foo.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: jtapp
+              port:
+                number: 9090
+          path: /octoboy/{param:.*}
+          pathType: Prefix
+  status:
+    loadBalancer: {}
+Server:
+  Port: 80

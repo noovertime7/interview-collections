@@ -1,0 +1,7 @@
+server:
+  port: 8089
+
+config:
+  user:
+    score: 100
+    age: 19

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jtapp
+spec:
+  selector:
+    matchLabels:
+      app: jtapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jtapp
+    spec:
+      nodeName: k8snode-02
+      containers:
+        - name: jtapp
+          image: alpine:3.12
+          imagePullPolicy: IfNotPresent
+          command: ["/app/jtapp"]
+          volumeMounts:
+            - name: app
+              mountPath: /app
+          ports:
+            - containerPort: 9090
+              hostPort: 9090
+      volumes:
+        - name: app
+          hostPath:
+            path: /root
