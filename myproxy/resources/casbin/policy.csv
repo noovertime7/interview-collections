@@ -1,0 +1,10 @@
+p, OPS, /apis/apps/v1/namespaces/:ns/deployments/:deploy, PATCH
+p, OPS, /apis/apps/v1/namespaces/:ns/deployments/:deploy, DELETE
+p, OPS, /apis/apps/v1/namespaces/:ns/deployments/:deploy, POST
+
+p, DEV, /apis/apps/v1/namespaces/:ns/deployments, GET
+p, DEV, /apis/apps/v1/namespaces/:ns/deployments/:deploy, GET
+
+g, OPS, DEV
+g, zhangyuhe, OPS
+g, lisi, DEV
